@@ -47,7 +47,7 @@ extension View {
                         .scaleEffect(y:8)
                         .keyframeAnimator(initialValue: 0.0, trigger: toggle, content: { content, progress in
                             content
-                                .offset(x: -size.width + (progress * size.width))
+                                .offset(x: -size.width + (progress * ( size.width * 2)))
                         }, keyframes: { _ in
                             CubicKeyframe(.zero, duration: 0.3)
                             CubicKeyframe(1, duration: moddedDuration)
