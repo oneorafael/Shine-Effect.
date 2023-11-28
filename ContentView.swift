@@ -2,11 +2,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Image("Pic")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 250)
+                    .clipShape(.rect(cornerRadius: 15))
+            }
+            .navigationTitle("Shine Effect")
         }
+        
     }
+}
+
+extension View {
+    
 }
