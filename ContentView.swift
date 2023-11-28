@@ -10,7 +10,7 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 250)
-                    .shine(toggle: shine, duration: 0.5, clipShape: .rect(cornerRadius: 15))
+                    .shine(toggle: shine, duration: 0.9, clipShape: .rect(cornerRadius: 15), rightToLeft: true)
                     .onTapGesture(perform: {
                         shine.toggle()
                     })
@@ -24,7 +24,7 @@ struct ContentView: View {
 
 extension View {
     @ViewBuilder
-    func shine(toggle:Bool, duration:CGFloat = 0.5, clipShape: some Shape = .rect) -> some View {
+    func shine(toggle:Bool, duration:CGFloat = 0.5, clipShape: some Shape = .rect, rightToLeft: Bool = false) -> some View {
         self 
             .overlay {
                 GeometryReader {
@@ -53,6 +53,7 @@ extension View {
                             CubicKeyframe(1, duration: moddedDuration)
                         })
                         .rotationEffect(.init(degrees: 45))
+                        .scaleEffect(x: rightToLeft ? -1:1)
                 }
             }
             .clipShape(clipShape)
